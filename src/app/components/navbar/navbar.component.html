@@ -1,0 +1,48 @@
+<header class="navbar" [class.scrolled]="isScrolled">
+  <div class="navbar__container">
+    <!-- Logo -->
+    <a href="/" class="navbar__logo">
+      <div class="logo-icon">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+          <circle cx="19" cy="19" r="19" fill="#2d5016"/>
+          <ellipse cx="19" cy="14" rx="6" ry="9" fill="#f0f4ec"/>
+          <circle cx="15" cy="10" r="3" fill="#5a9e3a"/>
+        </svg>
+      </div>
+      <span class="logo-text">olive</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="navbar__nav" [class.open]="isMobileMenuOpen">
+      <ul class="navbar__links">
+        <li *ngFor="let item of navItems" class="navbar__item">
+          <a href="#" class="navbar__link">
+            {{ item.label }}
+            <svg *ngIf="item.hasDropdown" class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- CTA Buttons -->
+    <div class="navbar__actions">
+      <a href="#" class="btn-signin">Sign in</a>
+      <a href="#" class="btn-primary">
+        Get Olive
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="navbar__hamburger" (click)="toggleMobileMenu()" aria-label="Toggle menu">
+      <span [class.open]="isMobileMenuOpen"></span>
+      <span [class.open]="isMobileMenuOpen"></span>
+      <span [class.open]="isMobileMenuOpen"></span>
+    </button>
+  </div>
+</header>
